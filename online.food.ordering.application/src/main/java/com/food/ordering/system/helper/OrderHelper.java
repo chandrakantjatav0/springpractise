@@ -65,8 +65,10 @@ public class OrderHelper {
 			OrderLineItem orderLineItem = new OrderLineItem();
 			orderLineItem.setOrder(order);
 			orderLineItem.setQuantity(productQuantity.getQuantity());
+			orderLineItem.setAmount(totalAmount);
 			FoodItem foodItem = foodItemService.findById(productQuantity.getProductId());
 			orderLineItem.setFoodItem(foodItem);
+			orderLineItem.setAmount(foodItem.getPrice());
 			totalAmount=totalAmount+foodItem.getPrice()*productQuantity.getQuantity();
 			orderLineItemRepository.save(orderLineItem);
 		}

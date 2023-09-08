@@ -23,7 +23,7 @@ public class OrderLineItemResponse {
 
 	// order
 	private Long orderid;
-	private Integer orderquantity;
+	//private Integer orderquantity;
 	private Double totalAmount;
 	private Date orderdate;
 	private OrderStatus orderstatus;

@@ -42,7 +42,7 @@ public class OrderLineItemHelper {
 		Order order = orderRepository.findById(orderLineItemRequest.getOrderId())
 				.orElseThrow(() -> new ResourceNotFoundException("No Order Was Created for bulk order by this id!.."));
 		orderLineItem.setOrder(order);
-		
+
 		return orderLineItem;
 	}
 
@@ -58,7 +58,7 @@ public class OrderLineItemHelper {
 		// order
 		orderLineItemResponse.setOrderid(orderLineItem.getOrder().getId());
 		// orderLineItemResponse.setOrderquantity(orderLineItem.getOrder().getQuantity());
-		 orderLineItemResponse.setTotalAmount(orderLineItem.getOrder().getTotalAmount());
+		orderLineItemResponse.setTotalAmount(orderLineItem.getAmount());
 		orderLineItemResponse.setOrderdate(orderLineItem.getOrder().getOrderdate());
 		orderLineItemResponse.setOrderstatus(orderLineItem.getOrder().getOrderstatus());
 		return orderLineItemResponse;

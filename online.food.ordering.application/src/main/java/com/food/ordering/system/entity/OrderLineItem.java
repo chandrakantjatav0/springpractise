@@ -20,16 +20,17 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Orders_Quantity")
+@Table(name = "order_line_item")
 public class OrderLineItem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "allOrdersQuantity")
 	private Long id;
-	
 	private Long quantity;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	private Double amount = 0.0;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "foodItem_id")
 	private FoodItem foodItem;
 
